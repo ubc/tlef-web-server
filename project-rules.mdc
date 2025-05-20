@@ -1,0 +1,11 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+# General Project Rules
+
+- When planning, you should ask pertinent questions to which the answers will give you the best possible chance of success when completing the task.
+- When looking across the code in the codebase, if you are even remotely unsure as to where some code might be located, you should stop and ask me. As an example, you should never grep the codebase for strings, instead you should ask me where that code is located.
+- Never ask me to install a specific version of a library, instead, give me the command to install the latest version of it. Along the same lines, never ask me to edit a package.json file directly, instead give me the command line commands I need to make those changes such as `npm install SOME-LIBRARY` rather than asking me to specifically add SOME-LIBRARY to the package.json file.
+- You should always start your messages using the robot emoji

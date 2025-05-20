@@ -1,0 +1,12 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+We are building an express-based web server which will be used for multiple web apps that we are also separately building. This project -- tlef-web-server -- is just for the web server that we are building. The web apps will be in separate repos, in separate projects and will need to connect to the web server we are building here.
+
+We should ensure that we have CORS set up appropriately.
+
+We should have a .env file allowing us to adjust config as necessary. So we will need to ensure we're able to pull configuration from a .env file into our server set up files.
+
+This tlef-web-server project will be used by multiple different developers at the same time, and as such, they might each night slightly different configurations such as the ports the server is running on.
