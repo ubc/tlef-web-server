@@ -1,5 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
+import cookieParser from 'cookie-parser';
 import createRoutes from './routes/create/createRoutes.js';
 import biocbotRoutes from './routes/biocbot/biocbotRoutes.js';
 
@@ -9,8 +11,20 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 7736;
 
-// Middleware to parse JSON bodies
-app.use(express.json());
+// CORS configuration for frontend integration
+app.use(cors({
+  origin: process.env.NODE_ENV === 'production' 
+    ? process.env.FRONTEND_URL 
+    : ['http://localhost:3000', 'http://localhost:8080'],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+// Middleware
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+app.use(cookieParser());
 
 // Mount the routers for each application
 app.use('/api/create', createRoutes);
